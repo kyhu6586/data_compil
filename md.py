@@ -1,8 +1,8 @@
 from __future__ import print_function
 import mdtraj as md
 import numpy as np
-#Change this to load in desired file-- must be processed through gromacs
-loadfile = "1FZT_processed.pdb"
+#Change this to load in desired file-- must have hydrogens
+loadfile = "1onc_processed.pdb"
 prot=loadfile[:4]
 traj = md.load(loadfile)
 print(traj)
@@ -112,7 +112,7 @@ if len(names)!=len(names2):
 
 #Last Step!!
 #Now let's write this data to a file!!
-f=open(prot+'_angles.txt','w+')
+f=open(prot.upper()+'_angles.txt','w+')
 val=0
 if(len(names)>len(names2)):
     val=len(names2)
